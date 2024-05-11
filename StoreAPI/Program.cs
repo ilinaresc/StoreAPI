@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using StoreDOMAIN.Core.Interfaces;
+using StoreDOMAIN.Core.Services;
 using StoreDOMAIN.Infrastructure.Data;
 using StoreDOMAIN.Infrastructure.Repositories;
 
@@ -13,6 +14,7 @@ builder.Services
     (options => options.UseSqlServer(cnx));
 
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
+builder.Services.AddTransient<ICategoryService, CategoryService>();
 builder.Services.AddTransient<IFavoriteRepository, FavoriteRepository>();
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
 

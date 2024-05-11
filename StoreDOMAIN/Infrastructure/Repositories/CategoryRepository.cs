@@ -43,6 +43,7 @@ namespace StoreDOMAIN.Infrastructure.Repositories
             return await _dbContext
                 .Category
                 .Where(c => c.IsActive == true)
+                .Include(p => p.Product)
                 .ToListAsync();
         }
 
@@ -51,6 +52,7 @@ namespace StoreDOMAIN.Infrastructure.Repositories
             return await _dbContext
                 .Category
                 .Where(c => c.IsActive == true && c.Id == id)
+                .Include(p => p.Product)
                 .FirstOrDefaultAsync();
         }
 
